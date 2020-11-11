@@ -1,0 +1,72 @@
+﻿@model IEnumerable<blessrng.Models.Reqest>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Second)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Third)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Out)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.In)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date_Out)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status.StatusName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.First)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Second)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Third)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Out)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.In)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date_Out)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status.StatusName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

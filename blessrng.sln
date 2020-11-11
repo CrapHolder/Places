@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30523.141
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "blessrng", "blessrng\blessrng.csproj", "{5B70008C-0BA2-4490-8740-8D4E4F507A24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "blessrng.Tests", "blessrng.Tests\blessrng.Tests.csproj", "{8C603688-AB1C-4384-BEB0-6326716B4D52}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5B70008C-0BA2-4490-8740-8D4E4F507A24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B70008C-0BA2-4490-8740-8D4E4F507A24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B70008C-0BA2-4490-8740-8D4E4F507A24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B70008C-0BA2-4490-8740-8D4E4F507A24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C603688-AB1C-4384-BEB0-6326716B4D52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C603688-AB1C-4384-BEB0-6326716B4D52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C603688-AB1C-4384-BEB0-6326716B4D52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C603688-AB1C-4384-BEB0-6326716B4D52}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7BE5CED5-6A27-47C5-9440-065C521B49A5}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище ReqestsModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Reqest">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="First" Type="nvarchar(max)" />
+          <Property Name="Second" Type="nvarchar(max)" />
+          <Property Name="Third" Type="nvarchar(max)" />
+          <Property Name="Out" Type="nvarchar(max)" />
+          <Property Name="In" Type="nvarchar(max)" />
+          <Property Name="Date_Out" Type="date" />
+          <Property Name="StatusID" Type="int" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StatusName" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="FK_Reqest_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+          <End Role="Reqest" Type="Self.Reqest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Reqest">
+              <PropertyRef Name="StatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище ReqestsModelContainer">
+          <EntitySet Name="Reqest" EntityType="Self.Reqest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Reqest_Status" Association="Self.FK_Reqest_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Reqest" EntitySet="Reqest" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ReqestsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Reqest">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="First" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Second" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Third" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Out" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="In" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Date_Out" Type="DateTime" Precision="0" />
+          <Property Name="StatusID" Type="Int32" />
+          <NavigationProperty Name="Status" Relationship="Self.FK_Reqest_Status" FromRole="Reqest" ToRole="Status" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StatusName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Reqest" Relationship="Self.FK_Reqest_Status" FromRole="Status" ToRole="Reqest" />
+        </EntityType>
+        <Association Name="FK_Reqest_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+          <End Role="Reqest" Type="Self.Reqest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Reqest">
+              <PropertyRef Name="StatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ReqestsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Reqest" EntityType="Self.Reqest" />
+          <EntitySet Name="Status" EntityType="Self.Status" />
+          <AssociationSet Name="FK_Reqest_Status" Association="Self.FK_Reqest_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Reqest" EntitySet="Reqest" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище ReqestsModelContainer" CdmEntityContainer="ReqestsEntities">
+          <EntitySetMapping Name="Reqest">
+            <EntityTypeMapping TypeName="ReqestsModel.Reqest">
+              <MappingFragment StoreEntitySet="Reqest">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="First" ColumnName="First" />
+                <ScalarProperty Name="Second" ColumnName="Second" />
+                <ScalarProperty Name="Third" ColumnName="Third" />
+                <ScalarProperty Name="Out" ColumnName="Out" />
+                <ScalarProperty Name="In" ColumnName="In" />
+                <ScalarProperty Name="Date_Out" ColumnName="Date_Out" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Status">
+            <EntityTypeMapping TypeName="ReqestsModel.Status">
+              <MappingFragment StoreEntitySet="Status">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

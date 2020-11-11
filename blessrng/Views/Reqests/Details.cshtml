@@ -1,0 +1,74 @@
+﻿@model blessrng.Models.Reqest
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Reqest</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.First)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.First)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Second)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Second)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Third)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Third)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Out)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Out)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.In)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.In)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date_Out)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date_Out)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status.StatusName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status.StatusName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
